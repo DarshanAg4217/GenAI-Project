@@ -1,0 +1,176 @@
+// ===== Reset =====
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+// ===== Background (More Attractive) =====
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+// ===== Wrapper =====
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ===== Card =====
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 45px 35px;
+  background: #ffffff;
+  border-radius: 26px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+// ===== Heading Section =====
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-container h1 {
+  font-size: 28px;
+  margin-bottom: 35px;
+  color: #111827;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+// ===== Form Layout =====
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// ===== Inputs =====
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  background: #f3f4f6;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus {
+  background: #ffffff;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+  outline: none;
+}
+
+// ===== Eye Icon =====
+.password-group input {
+  padding-right: 45px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+// ===== Forgot Link =====
+.forgot-link {
+  font-size: 13px;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+// ===== Button (More Attractive) =====
+button {
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 18px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(90deg, #0f9b8e, #004e64);
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(15, 155, 142, 0.4);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+// ===== Branding =====
+.brand {
+  margin-top: 45px;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// ===== Bottom Text =====
+.bottom-text {
+  margin-top: 12px;
+  font-size: 13px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.bottom-text a {
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.bottom-text a:hover {
+  text-decoration: underline;
+}
+
+// ===== Mobile =====
+@media (max-width: 768px) {
+
+  body {
+    background: #ffffff;   // Remove gradient on mobile
+  }
+
+  .auth-wrapper {
+    align-items: flex-start;
+  }
+
+  .form-container {
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 50px 25px;
+  }
+}
