@@ -3,6 +3,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const blackListModel = require("../model/blackList.model.js");
 
+
+/** 
+ * @description Register a new user
+ * @route POST /api/auth/register
+ * @access Public
+*/
 const registerConroller = async (req, res) => {
     const { username, email, password } = req.body;
 
@@ -47,6 +53,12 @@ const registerConroller = async (req, res) => {
         })
     }
 }
+
+/** 
+ * @description Login a user
+ * @route POST /api/auth/login
+ * @access Public
+*/
 
 const loginController = async (req, res) => {
     const { email, password } = req.body;
@@ -93,6 +105,11 @@ const loginController = async (req, res) => {
 
 }
 
+/** 
+ * @description Logout a user
+ * @route POST /api/auth/logout
+ * @access Private
+*/
 const logoutController = async (req, res) => {
 
     const token = req.cookies.token || req.headers.authorization.split(" ")[1];
@@ -122,4 +139,19 @@ const logoutController = async (req, res) => {
 
 }
 
-module.exports = { registerConroller, loginController, logoutController }
+const getMeController = async (req, res) => {
+    try {
+        const user = await userModel.findById(req.user._id)
+        return res.status(200).json({
+            message: "User fetched successfully",
+            user: user
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            message: "Internal server error"
+        })
+    }
+}
+
+module.exports = { registerConroller, loginController, logoutController, getMeController }
