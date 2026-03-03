@@ -1,14 +1,33 @@
 import React from "react";
-import "../auth.form.scss";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import "../auth.form.scss"; 
+
 
 const Login = () => {
 
+  const { loading, login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await login({ email, password });
     console.log("Login");
+    // After successful login, go to protected home at '/'
+    navigate("/");
+  }
+  if (loading) {
+    return (
+      <div className="fullscreen-loader">
+        <div className="loader-box">
+          <div className="spinner"></div>
+          <p>Logging you in...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -19,11 +38,17 @@ const Login = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <input type="email" placeholder="Email" />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              type="email" placeholder="Email"
+
+            />
           </div>
 
           <div className="input-group password-group">
-            <input type="password" placeholder="Password" />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              type="password" placeholder="Password" />
             <span className="eye-icon">👁</span>
           </div>
 
