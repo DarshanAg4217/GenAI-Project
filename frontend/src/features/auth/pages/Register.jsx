@@ -1,14 +1,33 @@
-import React from "react";
+import { useState } from "react";
 import "../auth.form.scss";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Register = () => {
 
   const navigate = useNavigate();
+  
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const { register, loading } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await register({ username, email, password });
     console.log("Register");
+    navigate("/");
+  }
+  if (loading) {
+    return (
+      <div className="fullscreen-loader">
+        <div className="loader-box">
+          <div className="spinner"></div>
+          <p>Registering your account...</p>
+        </div>
+      </div>
+    );
   }
   return (
     <div className="auth-wrapper">
@@ -18,15 +37,18 @@ const Register = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <input type="text" placeholder="Username" />
+            <input 
+            onChange={(e) => setUserName(e.target.value)}
+            type="text" placeholder="Username"
+             />
           </div>
 
           <div className="input-group">
-            <input type="email" placeholder="Email" />
+            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" />
           </div>
 
           <div className="input-group password-group">
-            <input type="password" placeholder="Password" />
+            <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" />
             <span className="eye-icon">👁</span>
           </div>
 
