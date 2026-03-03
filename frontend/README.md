@@ -1,16 +1,110 @@
-# React + Vite
+# 🚀 GenAI Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application built using modern technologies with a secure authentication system, protected routing, and proper backend configuration.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Features
 
-## React Compiler
+- 🔐 Authentication system (Login / Logout)
+- 🪝 Custom Hook (useAuth) for managing auth state
+- 🛡️ Protected Routes for authorized users only
+- 🔄 Two-way Data Binding for form handling
+- 🌐 CORS Configuration for frontend-backend communication
+- ⚡ Clean and modular folder structure
+- 🧠 Reusable components and scalable architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🏗️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+- React.js
+- React Router DOM
+- Custom Hooks
+- Context API
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- CORS Middleware
+
+---
+
+## 🔐 Authentication Flow
+
+1. User logs in
+2. Auth state is stored using custom useAuth hook
+3. Protected routes check authentication status
+4. Unauthorized users are redirected to login page
+
+---
+
+## 📁 Project Structure
+
+GenAI-Project/
+
+├── frontend/
+│   ├── components/
+│   ├── hooks/
+│   ├── pages/
+│
+├── backend/
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+git clone https://github.com/DarshanAg4217/GenAI-Project.git
+
+### 2️⃣ Install dependencies
+
+Frontend:
+
+cd frontend  
+npm install  
+
+Backend:
+
+cd backend  
+npm install  
+
+### 3️⃣ Run the project
+
+Backend:
+
+npm start  
+
+Frontend:
+
+npm start  
+
+---
+
+## 🔒 Security Implementation
+
+- CORS properly configured
+- Protected routing logic implemented
+- Authentication state management handled efficiently
+
+---
+
+## 🚀 Future Improvements
+
+- JWT based authentication
+- Role-based access control
+- Refresh token implementation
+- Deployment on cloud platform
+
+---
+
+## 👨‍💻 Author
+
+Darshan Vinod Agrawal  
+Computer Engineering Student | Full Stack Developer
